@@ -1,6 +1,18 @@
 import type { NextPage } from 'next'
 import Image from 'next/image'
-import { ConnectWallet, useContract, useUnclaimedNFTSupply, useClaimedNFTSupply, useContractMetadata, useAddress, useNetwork, useNetworkMismatch, useActiveClaimCondition } from '@thirdweb-dev/react'
+import {
+  ConnectWallet,
+  useContract,
+  useUnclaimedNFTSupply,
+  useClaimedNFTSupply,
+  useContractMetadata,
+  useAddress,
+  useNetwork,
+  useNetworkMismatch,
+  useActiveClaimCondition,
+} from '@thirdweb-dev/react'
+
+
 import { useEffect, useState } from 'react'
 
 type ChainProps = {
@@ -16,7 +28,25 @@ const Home = (props: ChainProps) => {
   const { data: contractMetadata } = useContractMetadata(nftDrop);
   const { data: claimedSupply } = useClaimedNFTSupply(nftDrop);
   const { data: unclaimedSupply } = useUnclaimedNFTSupply(nftDrop);
-  const { data: activeClaimCondition } = useActiveClaimCondition(nftDrop);
+  
+
+  const { data: activeClaimCondition, isLoading, error } = useActiveClaimCondition(nftDrop);
+
+  console.log("activeClaimCondition", activeClaimCondition);
+  console.log("activeClaimCondition error", error);
+
+
+/*
+  const { data: activeClaimCondition, isLoading, error } = useActiveClaimConditionForWallet(
+    nftDrop,
+    "{{wallet_address}}",
+  );
+
+  console.log("activeClaimCondition", activeClaimCondition);
+  console.log("activeClaimCondition error", error);
+
+*/
+
   
   const maxClaim: string = activeClaimCondition?.quantityLimitPerTransaction !== undefined ? activeClaimCondition?.quantityLimitPerTransaction: '0';
   
@@ -71,6 +101,7 @@ const Home = (props: ChainProps) => {
     }
 
     setIsMinting(true);
+
     try {
       await nftDrop?.erc721.claim(qty);
       setIsMinting(false);
@@ -106,7 +137,7 @@ const Home = (props: ChainProps) => {
               <span>{claimedSupply?.toNumber()}/{""}{(unclaimedSupply?.toNumber() || 0) + (claimedSupply?.toNumber() || 0)}</span>
             </div>
             <div className="card__img mt-3">
-              <Image src="/card.png" alt="cuteastros" className='rounded-lg' layout='responsive' width='100%' height='100%' priority={true} />
+              <Image src="/card.png" alt="granderby" className='rounded-lg' layout='responsive' width='100%' height='100%' priority={true} />
             </div>
             <div className="card__btn mt-3">
               {address ? (

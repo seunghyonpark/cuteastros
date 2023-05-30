@@ -15,8 +15,8 @@ const Layout = ({children}: Props) => {
   return (
     <>
         <Head>
-            <title>cuteastros</title>
-            <meta name="description" content="cuteastros is a unique collection of cute astronauts"/>
+            <title>GRANDERBY</title>
+            <meta name="description" content="GRANDERBY is a game where players raise and manage NFT horses to enter them into races and earn tokens"/>
         </Head>
 
         <div className='w-full min-h-screen'>
