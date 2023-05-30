@@ -89,7 +89,7 @@ const Home = (props: ChainProps) => {
 */
 
   
-  const maxClaim: string = activeClaimCondition?.quantityLimitPerTransaction !== undefined ? activeClaimCondition?.quantityLimitPerTransaction: '0';
+  ///const maxClaim: string = activeClaimCondition?.quantityLimitPerTransaction !== undefined ? activeClaimCondition?.quantityLimitPerTransaction: '0';
   
   // to check if all nfts are sold out.
   /*
@@ -277,15 +277,19 @@ const Home = (props: ChainProps) => {
   const isWrongNetwork = useNetworkMismatch();
   const [, switchNetwork] = useNetwork();
 
+  
   // sucess and error messages
   const [succes, setSucces] = useState("");
   const [errormsg, setError] = useState("");
 
   const [isMinting, setIsMinting] = useState(false);
 
+  /*
   useEffect(() => {
     console.log(maxClaim);
   }, [maxClaim])
+  */
+
 
   // the qty variable gets populated with the qty which user enters
   const [qty, setQty] = useState(1);
@@ -312,10 +316,12 @@ const Home = (props: ChainProps) => {
       return;
     }
     
+    /*
     if (qty > Number(maxClaim)){
       setError(`Max ${maxClaim} allowed`);
       return;
     }
+    */
 
     setIsMinting(true);
 
@@ -329,9 +335,10 @@ const Home = (props: ChainProps) => {
       setIsMinting(false);
       setQty(1);
       setError(error.reason);
-  }
+    }
 
   }
+
 
   // to display the loader until the data is fetched
   if (!nftDrop || !contractMetadata){
