@@ -7,6 +7,7 @@ class MyDocument extends Document {
       <Html>
         <Head>
 
+
           <meta property="og:type" content="website"></meta>
           <meta property="og:site_name" content="GRANDERBY"></meta>
           <meta property="og:title" content="GRANDERBY"></meta>
