@@ -9,7 +9,7 @@
 }
 
 body {
-  background-image: url(../public/bg2.jpg);
+  background-image: url(../public/intro-bg.png);
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;

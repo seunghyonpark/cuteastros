@@ -102,11 +102,11 @@ const Home = (props: ChainProps) => {
 
           <div className="mint__card w-[20rem] min-h-[25rem] rounded-lg p-4">
             <div className="card__top flex justify-between items-center">
-              <h2 className='heading text-xl'> {contractMetadata.name} 🚀</h2>
+              <h2 className='heading text-xl'> {contractMetadata.name} 🚀 </h2>
               <span>{claimedSupply?.toNumber()}/{""}{(unclaimedSupply?.toNumber() || 0) + (claimedSupply?.toNumber() || 0)}</span>
             </div>
             <div className="card__img mt-3">
-              <Image src="/card.png" alt="cuteastros" className='rounded-lg' layout='responsive' width='100%' height='100%' priority={true} placeholder="blur" />
+              <Image src="/card.png" alt="cuteastros" className='rounded-lg' layout='responsive' width='100%' height='100%' priority={true} />
             </div>
             <div className="card__btn mt-3">
               {address ? (
