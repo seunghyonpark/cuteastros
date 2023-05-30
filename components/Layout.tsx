@@ -23,9 +23,23 @@ const Layout = ({children}: Props) => {
             <nav className='mt-4 mr-6'>
             <ul className='flex justify-end items-center gap-x-4 body-font'>
                 
-                <li className={`${router.asPath == "/"? 'font-bold text-white': 'text-slate-400'}`}><Link href='/'>mint</Link></li>
-                <li className={`${router.asPath == "/about"? 'font-bold text-white': 'text-slate-400'}`}><Link href="/about">about</Link></li>
-                <li className={`${router.asPath == "/credits"? 'font-bold text-white': 'text-slate-400'}`}><Link href="/credits">credits</Link></li>
+                <li className={`${router.asPath == "/"? 'font-bold text-white': 'text-slate-400'}`}>
+                    <Link href='/'>mint</Link>
+                </li>
+                <li className={`${router.asPath == "/about"? 'font-bold text-white': 'text-slate-400'}`}>
+                    <Link href="/about">about</Link>
+                </li>
+                <li className={`${router.asPath == "/credits"? 'font-bold text-white': 'text-slate-400'}`}>
+                    <Link href="/credits">credits</Link>
+                </li>
+                <li className={`${router.asPath == "https://opensea.io/collection/vienna-mania"? 'font-bold text-white': 'text-slate-400'}`}>
+                    <Link href="https://opensea.io/collection/vienna-mania">opensea</Link>
+                </li>
+                <li className={`${router.asPath == "https://granderby-manager.vercel.app/search-horse"? 'font-bold text-white': 'text-slate-400'}`}>
+                    <Link href="https://granderby-manager.vercel.app/search-horse">management</Link>
+                </li>
+            
+            
             </ul>
             </nav>
 
